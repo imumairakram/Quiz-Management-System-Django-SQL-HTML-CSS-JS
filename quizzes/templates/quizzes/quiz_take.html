@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Taking {{ quiz.title }}{% endblock %}
+
+<h2>{{ quiz.title }}</h2>
+<p id="timer" class="fw-bold text-danger"></p>
+
+<form id="quizForm" method="post" action="{% url 'quiz_submit' quiz.id submission.id %}">
+  {% csrf_token %}
+  {% for question in quiz.questions.all %}
+    <div class="mb-3">
+      <p><strong>Q{{ forloop.counter }}:</strong> {{ question.text }}</p>
+      {% for choice in question.choices.all %}
+        <div class="form-check">
+          {% if question.type == "S" %}
+            <input type="radio" name="q{{ question.id }}" value="{{ choice.id }}" class="form-check-input">
+          {% else %}
+            <input type="checkbox" name="q{{ question.id }}" value="{{ choice.id }}" class="form-check-input">
+          {% endif %}
+          <label class="form-check-label">{{ choice.text }}</label>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+  <button type="submit" class="btn btn-success">Submit Quiz</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Results{% endblock %}
+{% block content %}
+
+<h2>Quiz Result - {{ quiz.title }}</h2>
+<p><strong>Score:</strong> {{ submission.score }} / {{ submission.max_score }}</p>
+
+<h4>Feedback</h4>
+{% for answer in submission.answers.all %}
+  <div class="mb-3">
+    <p><strong>{{ answer.question.text }}</strong></p>
+    <p>Your Answer: 
+      {% for choice_id in answer.selected_choice_ids.split(",") %}
+        {% with choice=answer.question.choices.get(id=choice_id) %}
+          <span class="badge bg-secondary">{{ choice.text }}</span>
+        {% endwith %}
+      {% endfor %}
+    </p>
+    <p>Correct Answer: 
+      {% for choice in answer.question.choices.all %}
+        {% if choice.is_correct %}
+          <span class="badge bg-success">{{ choice.text }}</span>
+        {% endif %}
+      {% endfor %}
+    </p>
+  </div>
+{% endfor %}
+
+<a href="{% url 'quiz_list' %}" class="btn btn-primary">Back to Quizzes</a>
+
+{% endblock %}

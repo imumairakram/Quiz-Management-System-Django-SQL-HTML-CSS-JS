@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Results</title>
+</head>
+<body>
+    <h1>Results for {{ submission.quiz.title }}</h1>
+
+    <p>Your Score: {{ score }}% ({{ correct_answers }} out of {{ total_questions }})</p>
+
+    <h2>Review:</h2>
+    <ul>
+        {% for answer in submission.answers.all %}
+            <li>
+                <strong>{{ answer.question.text }}</strong><br>
+                Your Answer: {{ answer.selected_choice.text }}<br>
+                {% if answer.selected_choice.is_correct %}
+                    ✅ Correct
+                {% else %}
+                    ❌ Incorrect
+                {% endif %}
+            </li>
+            <br>
+        {% endfor %}
+    </ul>
+</body>
+</html>
