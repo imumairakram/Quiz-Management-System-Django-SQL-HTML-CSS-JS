@@ -53,8 +53,8 @@ It allows admins/teachers to create quizzes and students to participate in them,
 
 ```bash
 # 1️⃣ Clone the Repository
-git clone https://github.com/your-username/quizforge.git
-cd quizforge
+git clone https://github.com/your-username/quizsystem.git
+cd quizsystem
 
 # 2️⃣ Create Virtual Environment
 python -m venv venv
