@@ -49,6 +49,35 @@ It allows admins/teachers to create quizzes and students to participate in them,
 
 ---
 
+## 🎯 Future Improvements
+
+- Add Timer for Quizzes ⏳
+- Add Leaderboard 🏆
+- Email Notifications 📧
+- Admin Analytics Dashboard 📊
+
+---
+
+## 🤝 Contributing
+
+- Contributions are welcome!
+- Fork the repo 🍴
+- Create a new branch 🌿
+- Commit changes 💡
+- Open a pull request 🚀
+
+---
+
+## 📜 License
+This project is licensed under the MIT License – feel free to use and improve it.
+
+---
+
+## 👨‍💻 Author
+Developed with ❤️ by Muhammad Umair Akram
+
+---
+
 ## ⚡ Installation  
 
 ```bash
